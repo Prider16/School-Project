@@ -1,0 +1,3 @@
+[gd_scene format=3 uid="uid://bv43i8m8qoses"]
+
+[node name="Ladder" type="Area2D"]

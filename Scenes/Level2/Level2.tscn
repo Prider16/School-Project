@@ -1,0 +1,67 @@
+[gd_scene load_steps=6 format=3 uid="uid://csm1eir4j6jer"]
+
+[ext_resource type="PackedScene" uid="uid://f4xe44kpm4yv" path="res://Scenes/base_level.tscn" id="1_inab8"]
+[ext_resource type="Script" path="res://Script/Level2/Level2.gd" id="2_1hppw"]
+[ext_resource type="PackedScene" uid="uid://cq8o6pe1corvu" path="res://Scenes/character.tscn" id="2_07kha"]
+[ext_resource type="PackedScene" uid="uid://ctj4outslwg8k" path="res://Scenes/flag.tscn" id="4_uw0x0"]
+[ext_resource type="PackedScene" uid="uid://cp5pv2x1d6hqe" path="res://Scenes/coin.tscn" id="5_o2vqy"]
+
+[node name="Base Level" instance=ExtResource("1_inab8")]
+script = ExtResource("2_1hppw")
+
+[node name="Character" parent="." index="24" instance=ExtResource("2_07kha")]
+position = Vector2(27, 170)
+
+[node name="Time_out" type="Timer" parent="." index="25"]
+wait_time = 90.0
+one_shot = true
+autostart = true
+
+[node name="Flag" parent="." index="26" instance=ExtResource("4_uw0x0")]
+position = Vector2(206, -1)
+
+[node name="Flag2" parent="." index="27" instance=ExtResource("4_uw0x0")]
+position = Vector2(432, -33)
+
+[node name="Flag3" parent="." index="28" instance=ExtResource("4_uw0x0")]
+position = Vector2(1232, 175)
+
+[node name="Flag4" parent="." index="29" instance=ExtResource("4_uw0x0")]
+position = Vector2(1165, -161)
+
+[node name="Flag5" parent="." index="30" instance=ExtResource("4_uw0x0")]
+position = Vector2(815, 6)
+
+[node name="coin" parent="." index="31" instance=ExtResource("5_o2vqy")]
+position = Vector2(438, 148)
+
+[node name="coin2" parent="." index="32" instance=ExtResource("5_o2vqy")]
+position = Vector2(382, 61)
+
+[node name="coin3" parent="." index="33" instance=ExtResource("5_o2vqy")]
+position = Vector2(618, 179)
+
+[node name="coin4" parent="." index="34" instance=ExtResource("5_o2vqy")]
+position = Vector2(133, 86)
+
+[node name="coin5" parent="." index="35" instance=ExtResource("5_o2vqy")]
+position = Vector2(679, -27)
+
+[node name="coin6" parent="." index="36" instance=ExtResource("5_o2vqy")]
+position = Vector2(966, -5)
+
+[node name="coin7" parent="." index="37" instance=ExtResource("5_o2vqy")]
+position = Vector2(1137, -28)
+
+[node name="coin8" parent="." index="38" instance=ExtResource("5_o2vqy")]
+position = Vector2(1059, -235)
+
+[connection signal="body_entered" from="Ladder" to="Character" method="_on_ladder_body_entered"]
+[connection signal="body_exited" from="Ladder" to="Character" method="_on_ladder_body_exited"]
+[connection signal="body_entered" from="Ladder2" to="Character" method="_on_ladder_2_body_entered"]
+[connection signal="body_exited" from="Ladder2" to="Character" method="_on_ladder_2_body_exited"]
+[connection signal="body_entered" from="Ladder3" to="Character" method="_on_ladder_3_body_entered"]
+[connection signal="body_exited" from="Ladder3" to="Character" method="_on_ladder_3_body_exited"]
+[connection signal="body_entered" from="Ladder4" to="Character" method="_on_ladder_4_body_entered"]
+[connection signal="body_exited" from="Ladder4" to="Character" method="_on_ladder_4_body_exited"]
+[connection signal="timeout" from="Time_out" to="." method="_on_time_out_timeout"]

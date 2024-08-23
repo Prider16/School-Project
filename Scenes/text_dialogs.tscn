@@ -1,0 +1,52 @@
+[gd_scene load_steps=3 format=3 uid="uid://bvk6j08vsquyt"]
+
+[ext_resource type="Texture2D" uid="uid://cyefo01nuo8p3" path="res://Assets/UI/TextBox.png" id="1_78jvr"]
+[ext_resource type="FontFile" uid="uid://sl8wffx8ofb3" path="res://Assets/Font/PixelOperator8-Bold.ttf" id="2_syg15"]
+
+[node name="TextDialogs" type="CanvasLayer"]
+
+[node name="TextBox" type="TextureRect" parent="."]
+offset_left = 25.0
+offset_top = 158.0
+offset_right = 463.0
+offset_bottom = 230.0
+texture = ExtResource("1_78jvr")
+expand_mode = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TextBox"]
+layout_mode = 0
+offset_left = 19.0
+offset_top = 4.0
+offset_right = 417.0
+offset_bottom = 67.0
+
+[node name="Start" type="Label" parent="TextBox/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_syg15")
+theme_override_font_sizes/font_size = 16
+text = "*"
+vertical_alignment = 1
+
+[node name="Text" type="Label" parent="TextBox/HBoxContainer"]
+custom_minimum_size = Vector2(352, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_syg15")
+theme_override_font_sizes/font_size = 16
+text = "Sample Text!"
+vertical_alignment = 1
+autowrap_mode = 1
+clip_text = true
+
+[node name="End" type="Label" parent="TextBox/HBoxContainer"]
+custom_minimum_size = Vector2(24, 16)
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_syg15")
+theme_override_font_sizes/font_size = 16
+text = "->"

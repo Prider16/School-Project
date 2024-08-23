@@ -1,0 +1,142 @@
+[gd_scene load_steps=10 format=3 uid="uid://bfdtxhh8sc8d2"]
+
+[ext_resource type="PackedScene" uid="uid://bjy6iicn28ayw" path="res://Scenes/base_level_boss_and_ui.tscn" id="1_0bdhf"]
+[ext_resource type="Script" path="res://Script/Main_Menu.gd" id="2_ahubb"]
+[ext_resource type="Texture2D" uid="uid://jv0bfdjim821" path="res://Assets/UI/Logo.png" id="2_i0qal"]
+[ext_resource type="Texture2D" uid="uid://d2x6qv2ri14fu" path="res://Assets/UI/WideSlider_WhiteOutline_Frame.png" id="3_yus2x"]
+[ext_resource type="Texture2D" uid="uid://dkotvb76v36qb" path="res://Assets/UI/sdv.png" id="4_a2mfu"]
+[ext_resource type="FontFile" uid="uid://ivs72c0wtgj2" path="res://Assets/Font/TTVTechPrecomputer.ttf" id="5_u4s1g"]
+[ext_resource type="Texture2D" uid="uid://d11a33u3cnya6" path="res://Assets/UI/Icon_Small_WhiteOutline_X.png" id="6_4fvqc"]
+[ext_resource type="Texture2D" uid="uid://b01tnsm7bb6df" path="res://Assets/UI/Icon_Small_Blank_X.png" id="7_l5kun"]
+[ext_resource type="AudioStream" uid="uid://csno8r8ymt3sg" path="res://Assets/Sounds/Click_02.ogg" id="9_baf75"]
+
+[node name="Base_level_Boss_And_UI" instance=ExtResource("1_0bdhf")]
+script = ExtResource("2_ahubb")
+
+[node name="Logo" type="Sprite2D" parent="." index="2"]
+position = Vector2(243, 66)
+scale = Vector2(1.40625, 1.40625)
+texture = ExtResource("2_i0qal")
+
+[node name="Start Button" type="TextureButton" parent="." index="3"]
+layout_mode = 0
+offset_left = 199.0
+offset_top = 118.0
+offset_right = 304.0
+offset_bottom = 169.0
+texture_normal = ExtResource("3_yus2x")
+texture_hover = ExtResource("4_a2mfu")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="Start Button" index="0"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = -3.0
+offset_right = 105.0
+offset_bottom = 48.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_u4s1g")
+theme_override_font_sizes/font_size = 32
+text = "PLAY"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Click1" type="AudioStreamPlayer2D" parent="Start Button" index="1"]
+position = Vector2(-199, -118)
+stream = ExtResource("9_baf75")
+bus = &"SFX"
+
+[node name="Settings" type="TextureButton" parent="." index="4"]
+layout_mode = 0
+offset_left = 110.0
+offset_top = 127.0
+offset_right = 185.0
+offset_bottom = 159.0
+texture_normal = ExtResource("3_yus2x")
+texture_hover = ExtResource("4_a2mfu")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="Settings" index="0"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = -3.0
+offset_right = 72.0
+offset_bottom = 32.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_u4s1g")
+theme_override_font_sizes/font_size = 16
+text = "Settings"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Click2" type="AudioStreamPlayer2D" parent="Settings" index="1"]
+position = Vector2(-199, -118)
+stream = ExtResource("9_baf75")
+bus = &"SFX"
+
+[node name="How To?" type="TextureButton" parent="." index="5"]
+layout_mode = 0
+offset_left = 316.0
+offset_top = 129.0
+offset_right = 391.0
+offset_bottom = 161.0
+texture_normal = ExtResource("3_yus2x")
+texture_hover = ExtResource("4_a2mfu")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="How To?" index="0"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = -3.0
+offset_right = 72.0
+offset_bottom = 32.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_u4s1g")
+theme_override_font_sizes/font_size = 16
+text = "Credits"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Click3" type="AudioStreamPlayer2D" parent="How To?" index="1"]
+position = Vector2(-199, -118)
+stream = ExtResource("9_baf75")
+bus = &"SFX"
+
+[node name="Exit" type="TextureButton" parent="." index="6"]
+layout_mode = 0
+offset_left = 452.0
+offset_top = 212.0
+offset_right = 484.0
+offset_bottom = 244.0
+texture_normal = ExtResource("6_4fvqc")
+texture_hover = ExtResource("7_l5kun")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="Exit" index="0"]
+layout_mode = 0
+offset_left = -8.0
+offset_top = -26.0
+offset_right = 38.0
+offset_bottom = -2.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_u4s1g")
+theme_override_font_sizes/font_size = 32
+text = "Exit"
+
+[node name="Click4" type="AudioStreamPlayer2D" parent="Exit" index="1"]
+position = Vector2(-199, -118)
+stream = ExtResource("9_baf75")
+bus = &"SFX"
+
+[connection signal="pressed" from="Start Button" to="." method="_on_start_button_pressed"]
+[connection signal="finished" from="Start Button/Click1" to="." method="_on_click_1_finished"]
+[connection signal="pressed" from="Settings" to="." method="_on_settings_pressed"]
+[connection signal="finished" from="Settings/Click2" to="." method="_on_click_2_finished"]
+[connection signal="pressed" from="How To?" to="." method="_on_how_to_pressed"]
+[connection signal="finished" from="How To?/Click3" to="." method="_on_click_3_finished"]
+[connection signal="pressed" from="Exit" to="." method="_on_exit_pressed"]
+[connection signal="finished" from="Exit/Click4" to="." method="_on_click_4_finished"]

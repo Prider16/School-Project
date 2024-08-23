@@ -1,0 +1,58 @@
+[gd_scene load_steps=5 format=3 uid="uid://dtx1jydvmwljy"]
+
+[ext_resource type="Texture2D" uid="uid://cptv5f16xmndj" path="res://Assets/Sprites/Objects/coin_gold.png" id="1_6b8j2"]
+[ext_resource type="Script" path="res://Script/ui.gd" id="1_thvkw"]
+[ext_resource type="FontFile" uid="uid://ivs72c0wtgj2" path="res://Assets/Font/TTVTechPrecomputer.ttf" id="2_1i6mc"]
+[ext_resource type="Texture2D" uid="uid://ct571ax7jhch6" path="res://Assets/Sprites/Objects/flag.png" id="3_bhpqi"]
+
+[node name="UI" type="CanvasLayer"]
+script = ExtResource("1_thvkw")
+
+[node name="Coin" type="Sprite2D" parent="."]
+position = Vector2(472, 15)
+scale = Vector2(1.4375, 1.4375)
+texture = ExtResource("1_6b8j2")
+region_enabled = true
+region_rect = Rect2(0, 0, 16.291, 16)
+
+[node name="Coin_Count" type="Label" parent="Coin"]
+offset_left = 7.0
+offset_top = -7.0
+offset_right = 19.0
+offset_bottom = 5.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_1i6mc")
+theme_override_font_sizes/font_size = 16
+text = "00"
+
+[node name="Flag" type="Sprite2D" parent="."]
+position = Vector2(35, 15)
+scale = Vector2(0.758065, 0.758065)
+texture = ExtResource("3_bhpqi")
+region_enabled = true
+region_rect = Rect2(0, 0, 31.8469, 32)
+
+[node name="Flag_Count" type="Label" parent="Flag"]
+offset_left = -38.2553
+offset_top = -14.5106
+offset_right = -14.2553
+offset_bottom = 9.48936
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_1i6mc")
+theme_override_font_sizes/font_size = 32
+text = "00"
+
+[node name="Timer_count" type="Label" parent="."]
+offset_left = 235.0
+offset_top = 4.0
+offset_right = 291.0
+offset_bottom = 28.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_1i6mc")
+theme_override_font_sizes/font_size = 32
+text = "00:00"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Timer" type="Timer" parent="Timer_count"]
+wait_time = 120.0

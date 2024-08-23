@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://dx4nqp1nr6j1j"]
+
+[ext_resource type="AudioStream" uid="uid://c42kl72lw4uha" path="res://Assets/Sounds/703713__zhr__chill-background-music-2.wav" id="1_8k67m"]
+[ext_resource type="Script" path="res://Script/Music.gd" id="2_vrejt"]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer"]
+stream = ExtResource("1_8k67m")
+volume_db = -0.025
+autoplay = true
+bus = &"Music"
+script = ExtResource("2_vrejt")
+
+[connection signal="finished" from="." to="." method="_on_finished"]

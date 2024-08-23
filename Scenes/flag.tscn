@@ -1,0 +1,110 @@
+[gd_scene load_steps=16 format=3 uid="uid://ctj4outslwg8k"]
+
+[ext_resource type="Texture2D" uid="uid://ct571ax7jhch6" path="res://Assets/Sprites/Objects/flag.png" id="1_4ltch"]
+[ext_resource type="Script" path="res://Script/flag.gd" id="2_hakdh"]
+[ext_resource type="FontFile" uid="uid://bg7rgbk1qryj3" path="res://Assets/Font/ComputergamesOa.ttf" id="3_ibdko"]
+[ext_resource type="AudioStream" uid="uid://vdhnsabqilcp" path="res://Assets/Sounds/confirmation_001.ogg" id="4_52ha7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4t010"]
+atlas = ExtResource("1_4ltch")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kcgoh"]
+atlas = ExtResource("1_4ltch")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2g4hp"]
+atlas = ExtResource("1_4ltch")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a06a1"]
+atlas = ExtResource("1_4ltch")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y5462"]
+atlas = ExtResource("1_4ltch")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_co2fj"]
+atlas = ExtResource("1_4ltch")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1uds5"]
+atlas = ExtResource("1_4ltch")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e7fk8"]
+atlas = ExtResource("1_4ltch")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ksrqr"]
+atlas = ExtResource("1_4ltch")
+region = Rect2(256, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_n0dfl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4t010")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kcgoh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2g4hp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a06a1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y5462")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_co2fj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1uds5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e7fk8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ksrqr")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ygld1"]
+radius = 25.0
+height = 70.0
+
+[node name="Flag" type="AnimatedSprite2D"]
+position = Vector2(-4.76837e-07, -4.76837e-07)
+sprite_frames = SubResource("SpriteFrames_n0dfl")
+autoplay = "default"
+frame_progress = 0.277041
+script = ExtResource("2_hakdh")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CapsuleShape2D_ygld1")
+
+[node name="Label" type="Label" parent="."]
+visible = false
+offset_left = -121.697
+offset_top = -76.6061
+offset_right = 140.303
+offset_bottom = -52.6061
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_ibdko")
+theme_override_font_sizes/font_size = 24
+text = "Press E to get the Flag"
+
+[node name="Collect" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_52ha7")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

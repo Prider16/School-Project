@@ -1,0 +1,92 @@
+[gd_scene load_steps=13 format=3 uid="uid://x6wpe78snpo7"]
+
+[ext_resource type="AudioStream" uid="uid://b4cngqpmxe3ax" path="res://Assets/Sounds/footstep00.ogg" id="1_m1ycs"]
+[ext_resource type="AudioStream" uid="uid://ejmead0a48et" path="res://Assets/Sounds/footstep01.ogg" id="2_554ei"]
+[ext_resource type="AudioStream" uid="uid://d3lrxrcaq2s4s" path="res://Assets/Sounds/footstep02.ogg" id="3_buqrb"]
+[ext_resource type="AudioStream" uid="uid://bfm0diqye41iu" path="res://Assets/Sounds/footstep03.ogg" id="4_7hhq8"]
+[ext_resource type="AudioStream" uid="uid://de0823fxkms84" path="res://Assets/Sounds/footstep04.ogg" id="5_xjmdn"]
+[ext_resource type="AudioStream" uid="uid://dnhxfmchf8kdm" path="res://Assets/Sounds/footstep05.ogg" id="6_ke77s"]
+[ext_resource type="AudioStream" uid="uid://dhl543gpdcoki" path="res://Assets/Sounds/footstep06.ogg" id="7_j2ww3"]
+[ext_resource type="AudioStream" uid="uid://dbx80srj8q1io" path="res://Assets/Sounds/footstep07.ogg" id="8_fw7m7"]
+[ext_resource type="AudioStream" uid="uid://boa5or3r58vbf" path="res://Assets/Sounds/footstep08.ogg" id="9_twf1q"]
+[ext_resource type="AudioStream" uid="uid://nyf2cy3akvtq" path="res://Assets/Sounds/footstep09.ogg" id="10_c3hga"]
+
+[sub_resource type="Animation" id="Animation_wyxcw"]
+resource_name = "Run"
+length = 0.7
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimationPlayer/FootStep1:playing")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimationPlayer/FootStep2:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimationPlayer/FootStep3:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.4),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_y5tqr"]
+_data = {
+"Run": SubResource("Animation_wyxcw")
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer"]
+libraries = {
+"": SubResource("AnimationLibrary_y5tqr")
+}
+
+[node name="FootStep1" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("1_m1ycs")
+
+[node name="FootStep2" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_554ei")
+
+[node name="FootStep3" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_buqrb")
+
+[node name="FootStep4" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_7hhq8")
+
+[node name="FootStep5" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_xjmdn")
+
+[node name="FootStep6" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_ke77s")
+
+[node name="FootStep7" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_j2ww3")
+
+[node name="FootStep8" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_fw7m7")
+
+[node name="FootStep9" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("9_twf1q")
+
+[node name="FootStep10" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("10_c3hga")

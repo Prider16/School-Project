@@ -1,0 +1,125 @@
+[gd_scene load_steps=14 format=3 uid="uid://bhhhpcu0ea457"]
+
+[ext_resource type="PackedScene" uid="uid://f4xe44kpm4yv" path="res://Scenes/base_level.tscn" id="1_hqlq7"]
+[ext_resource type="Script" path="res://Script/Level5/Level5B.gd" id="2_s86vx"]
+[ext_resource type="Script" path="res://Script/NPC3.gd" id="3_i7t37"]
+[ext_resource type="FontFile" uid="uid://bg7rgbk1qryj3" path="res://Assets/Font/ComputergamesOa.ttf" id="4_srd02"]
+[ext_resource type="Script" path="res://Script/NPC4.gd" id="5_s4v3m"]
+[ext_resource type="PackedScene" uid="uid://bvk6j08vsquyt" path="res://Scenes/text_dialogs.tscn" id="5_tw3un"]
+[ext_resource type="PackedScene" uid="uid://ui5cq7rhj4xe" path="res://Scenes/character_2.tscn" id="6_0widg"]
+[ext_resource type="Script" path="res://Script/NPC3_Dialog.gd" id="6_1lkli"]
+[ext_resource type="PackedScene" uid="uid://ctj4outslwg8k" path="res://Scenes/flag.tscn" id="7_7wj0o"]
+[ext_resource type="PackedScene" uid="uid://cp5pv2x1d6hqe" path="res://Scenes/coin.tscn" id="8_qh4fd"]
+[ext_resource type="PackedScene" uid="uid://2my8jy8yfs5a" path="res://Scenes/key.tscn" id="9_8x73f"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_77lf1"]
+size = Vector2(46, 50)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7n6qr"]
+size = Vector2(46, 50)
+
+[node name="Base Level" instance=ExtResource("1_hqlq7")]
+script = ExtResource("2_s86vx")
+
+[node name="NPC3" parent="." index="7"]
+script = ExtResource("3_i7t37")
+
+[node name="Area2D" type="Area2D" parent="NPC3" index="0"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NPC3/Area2D" index="0"]
+shape = SubResource("RectangleShape2D_77lf1")
+
+[node name="Label" type="Label" parent="NPC3" index="1"]
+visible = false
+offset_left = -125.0
+offset_top = -40.0
+offset_right = 137.0
+offset_bottom = -16.0
+theme_override_fonts/font = ExtResource("4_srd02")
+theme_override_font_sizes/font_size = 16
+text = "Press E to interact with the NPC"
+
+[node name="TextDialogs" parent="NPC3" index="2" instance=ExtResource("5_tw3un")]
+script = ExtResource("6_1lkli")
+
+[node name="NPC4" parent="." index="8"]
+script = ExtResource("5_s4v3m")
+
+[node name="Area2D" type="Area2D" parent="NPC4" index="0"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NPC4/Area2D" index="0"]
+shape = SubResource("RectangleShape2D_7n6qr")
+
+[node name="Label" type="Label" parent="NPC4" index="1"]
+visible = false
+offset_left = -125.0
+offset_top = -40.0
+offset_right = 137.0
+offset_bottom = -16.0
+theme_override_fonts/font = ExtResource("4_srd02")
+theme_override_font_sizes/font_size = 16
+text = "Press E to interact with the NPC"
+
+[node name="TextDialogs" parent="NPC4" index="2" instance=ExtResource("5_tw3un")]
+script = ExtResource("6_1lkli")
+
+[node name="Character 2" parent="." index="24" instance=ExtResource("6_0widg")]
+position = Vector2(48, 167)
+
+[node name="Time_out" type="Timer" parent="." index="25"]
+wait_time = 90.0
+one_shot = true
+
+[node name="Flag" parent="." index="26" instance=ExtResource("7_7wj0o")]
+position = Vector2(1059, -241)
+
+[node name="Flag2" parent="." index="27" instance=ExtResource("7_7wj0o")]
+position = Vector2(611, -33)
+
+[node name="Flag3" parent="." index="28" instance=ExtResource("7_7wj0o")]
+position = Vector2(207, -1)
+
+[node name="coin" parent="." index="29" instance=ExtResource("8_qh4fd")]
+position = Vector2(579, 92)
+
+[node name="coin2" parent="." index="30" instance=ExtResource("8_qh4fd")]
+position = Vector2(97, 81)
+
+[node name="coin3" parent="." index="31" instance=ExtResource("8_qh4fd")]
+position = Vector2(476, 180)
+
+[node name="coin4" parent="." index="32" instance=ExtResource("8_qh4fd")]
+position = Vector2(321, 101)
+
+[node name="coin5" parent="." index="33" instance=ExtResource("8_qh4fd")]
+position = Vector2(1185, -82)
+
+[node name="coin6" parent="." index="34" instance=ExtResource("8_qh4fd")]
+position = Vector2(1075, -2)
+
+[node name="coin7" parent="." index="35" instance=ExtResource("8_qh4fd")]
+position = Vector2(1136, 164)
+
+[node name="coin8" parent="." index="36" instance=ExtResource("8_qh4fd")]
+position = Vector2(841, 56)
+
+[node name="Key" parent="." index="37" instance=ExtResource("9_8x73f")]
+position = Vector2(1160, 34)
+
+[node name="Key2" parent="." index="38" instance=ExtResource("9_8x73f")]
+position = Vector2(513, 63)
+
+[connection signal="body_entered" from="Ladder" to="Character 2" method="_on_ladder_body_entered"]
+[connection signal="body_exited" from="Ladder" to="Character 2" method="_on_ladder_body_exited"]
+[connection signal="body_entered" from="Ladder2" to="Character 2" method="_on_ladder_2_body_entered"]
+[connection signal="body_exited" from="Ladder2" to="Character 2" method="_on_ladder_2_body_exited"]
+[connection signal="body_entered" from="Ladder3" to="Character 2" method="_on_ladder_3_body_entered"]
+[connection signal="body_exited" from="Ladder3" to="Character 2" method="_on_ladder_3_body_exited"]
+[connection signal="body_entered" from="Ladder4" to="Character 2" method="_on_ladder_4_body_entered"]
+[connection signal="body_exited" from="Ladder4" to="Character 2" method="_on_ladder_4_body_exited"]
+[connection signal="body_entered" from="NPC3/Area2D" to="NPC3" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="NPC3/Area2D" to="NPC3" method="_on_area_2d_body_exited"]
+[connection signal="body_entered" from="NPC4/Area2D" to="NPC4" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="NPC4/Area2D" to="NPC4" method="_on_area_2d_body_exited"]
+[connection signal="tree_exited" from="Key" to="NPC3" method="_on_key_tree_exited"]
+[connection signal="tree_exited" from="Key2" to="NPC4" method="_on_key_2_tree_exited"]

@@ -1,0 +1,99 @@
+[gd_scene load_steps=12 format=3 uid="uid://b7p7kms1lib77"]
+
+[ext_resource type="PackedScene" uid="uid://f4xe44kpm4yv" path="res://Scenes/base_level.tscn" id="1_yvd1c"]
+[ext_resource type="Script" path="res://Script/Level3/Level3.gd" id="2_ba1p0"]
+[ext_resource type="PackedScene" uid="uid://ctj4outslwg8k" path="res://Scenes/flag.tscn" id="2_qakhs"]
+[ext_resource type="Script" path="res://Script/NPC3.gd" id="3_7i6uh"]
+[ext_resource type="PackedScene" uid="uid://cp5pv2x1d6hqe" path="res://Scenes/coin.tscn" id="3_jjwv4"]
+[ext_resource type="PackedScene" uid="uid://cq8o6pe1corvu" path="res://Scenes/character.tscn" id="3_rlci1"]
+[ext_resource type="FontFile" uid="uid://bg7rgbk1qryj3" path="res://Assets/Font/ComputergamesOa.ttf" id="4_qvyvh"]
+[ext_resource type="PackedScene" uid="uid://bvk6j08vsquyt" path="res://Scenes/text_dialogs.tscn" id="5_s0df1"]
+[ext_resource type="Script" path="res://Script/NPC3_Dialog.gd" id="6_2gw2v"]
+[ext_resource type="PackedScene" uid="uid://2my8jy8yfs5a" path="res://Scenes/key.tscn" id="7_bn35q"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lehxq"]
+size = Vector2(46, 50)
+
+[node name="Base Level" instance=ExtResource("1_yvd1c")]
+script = ExtResource("2_ba1p0")
+
+[node name="NPC3" parent="." index="7"]
+script = ExtResource("3_7i6uh")
+
+[node name="Area2D" type="Area2D" parent="NPC3" index="0"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NPC3/Area2D" index="0"]
+shape = SubResource("RectangleShape2D_lehxq")
+
+[node name="Label" type="Label" parent="NPC3" index="1"]
+visible = false
+offset_left = -125.0
+offset_top = -40.0
+offset_right = 137.0
+offset_bottom = -16.0
+theme_override_fonts/font = ExtResource("4_qvyvh")
+theme_override_font_sizes/font_size = 16
+text = "Press E to interact with the NPC"
+
+[node name="TextDialogs" parent="NPC3" index="2" instance=ExtResource("5_s0df1")]
+script = ExtResource("6_2gw2v")
+
+[node name="Character" parent="." index="24" instance=ExtResource("3_rlci1")]
+position = Vector2(38, 172)
+
+[node name="Time_out" type="Timer" parent="." index="25"]
+wait_time = 90.0
+one_shot = true
+autostart = true
+
+[node name="Flag" parent="." index="26" instance=ExtResource("2_qakhs")]
+position = Vector2(317, 6)
+
+[node name="Flag2" parent="." index="27" instance=ExtResource("2_qakhs")]
+position = Vector2(840, -80)
+
+[node name="Flag3" parent="." index="28" instance=ExtResource("2_qakhs")]
+position = Vector2(1233, 48)
+
+[node name="Flag4" parent="." index="29" instance=ExtResource("2_qakhs")]
+position = Vector2(1039, -241)
+
+[node name="coin" parent="." index="30" instance=ExtResource("3_jjwv4")]
+position = Vector2(438, 148)
+
+[node name="coin2" parent="." index="31" instance=ExtResource("3_jjwv4")]
+position = Vector2(145, -1)
+
+[node name="coin3" parent="." index="32" instance=ExtResource("3_jjwv4")]
+position = Vector2(618, 179)
+
+[node name="coin4" parent="." index="33" instance=ExtResource("3_jjwv4")]
+position = Vector2(133, 86)
+
+[node name="coin5" parent="." index="34" instance=ExtResource("3_jjwv4")]
+position = Vector2(679, -27)
+
+[node name="coin6" parent="." index="35" instance=ExtResource("3_jjwv4")]
+position = Vector2(966, -5)
+
+[node name="coin7" parent="." index="36" instance=ExtResource("3_jjwv4")]
+position = Vector2(830, 83)
+
+[node name="coin8" parent="." index="37" instance=ExtResource("3_jjwv4")]
+position = Vector2(1095, -154)
+
+[node name="Key" parent="." index="38" instance=ExtResource("7_bn35q")]
+position = Vector2(525, -28)
+
+[connection signal="body_entered" from="Ladder" to="Character" method="_on_ladder_body_entered"]
+[connection signal="body_exited" from="Ladder" to="Character" method="_on_ladder_body_exited"]
+[connection signal="body_entered" from="Ladder2" to="Character" method="_on_ladder_2_body_entered"]
+[connection signal="body_exited" from="Ladder2" to="Character" method="_on_ladder_2_body_exited"]
+[connection signal="body_entered" from="Ladder3" to="Character" method="_on_ladder_3_body_entered"]
+[connection signal="body_exited" from="Ladder3" to="Character" method="_on_ladder_3_body_exited"]
+[connection signal="body_entered" from="Ladder4" to="Character" method="_on_ladder_4_body_entered"]
+[connection signal="body_exited" from="Ladder4" to="Character" method="_on_ladder_4_body_exited"]
+[connection signal="body_entered" from="NPC3/Area2D" to="NPC3" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="NPC3/Area2D" to="NPC3" method="_on_area_2d_body_exited"]
+[connection signal="timeout" from="Time_out" to="." method="_on_time_out_timeout"]
+[connection signal="tree_exited" from="Key" to="NPC3" method="_on_key_tree_exited"]

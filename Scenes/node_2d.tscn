@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://004w0kgiikin"]
+
+[ext_resource type="Texture2D" uid="uid://ciet35eacpt5n" path="res://Assets/Sprites/World/Underwater_Night_7.jpg" id="1_2165b"]
+[ext_resource type="Texture2D" uid="uid://bfer37p31oqhs" path="res://Assets/Sprites/World/Designer-removebg-preview.png" id="2_k5ae3"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 1536.0
+offset_bottom = 832.0
+texture = ExtResource("1_2165b")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 1533.0
+offset_bottom = 842.0
+color = Color(0.0901961, 0.2, 0.270588, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(753, 244)
+texture = ExtResource("2_k5ae3")
