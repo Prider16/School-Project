@@ -2,3 +2,5 @@ This is a game that i have created just to revise the topics of Godot, it was fu
 hope you like it as well...
 
 it's not so good art wise but it is what it is.
+
+You can download and the game here :- https://dhruvsinha.itch.io/school-project
