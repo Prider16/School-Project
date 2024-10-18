@@ -23,6 +23,3 @@ func _process(delta):
 		collect.play()
 		ui.Add_Flag_Point()
 		flag_equip = true
-
-
-

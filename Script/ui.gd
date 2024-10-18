@@ -10,6 +10,10 @@ var F_Score = 0.0
 func _ready():
 	timer.start()
 
+func ChangeScene(Transit, TotalFlags):
+	if TotalFlags == 5:
+		get_tree().change_scene_to_file(Transit)
+
 func Add_Coin_Point():
 	C_Score += 1
 	coin_count.text = str(C_Score)
