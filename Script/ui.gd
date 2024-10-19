@@ -19,8 +19,8 @@ func Add_Coin_Point():
 	coin_count.text = str(C_Score)
 
 func Add_Flag_Point():
-	F_Score += 0.5
-	flag_count.text = str(F_Score)
+	F_Score += 1
+	flag_count.text = str(F_Score/2)
 
 func Time_remains():
 	var time_left = timer.time_left

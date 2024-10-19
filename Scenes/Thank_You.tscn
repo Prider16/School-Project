@@ -1,9 +1,123 @@
-[gd_scene format=3 uid="uid://dn3c0qbqw1733"]
+[gd_scene load_steps=8 format=3 uid="uid://c6wcjwvo64yvo"]
 
-[node name="Control" type="Control"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[ext_resource type="PackedScene" uid="uid://bjy6iicn28ayw" path="res://Scenes/base_level_boss_and_ui.tscn" id="1_sbnlm"]
+[ext_resource type="Script" path="res://Script/thank_you.gd" id="2_4i0n2"]
+[ext_resource type="Texture2D" uid="uid://jv0bfdjim821" path="res://Assets/UI/Logo.png" id="2_ucl4e"]
+[ext_resource type="Texture2D" uid="uid://d2x6qv2ri14fu" path="res://Assets/UI/WideSlider_WhiteOutline_Frame.png" id="3_tggpp"]
+[ext_resource type="Texture2D" uid="uid://dkotvb76v36qb" path="res://Assets/UI/sdv.png" id="4_uba5f"]
+[ext_resource type="FontFile" uid="uid://ivs72c0wtgj2" path="res://Assets/Font/TTVTechPrecomputer.ttf" id="5_x38d4"]
+[ext_resource type="AudioStream" uid="uid://csno8r8ymt3sg" path="res://Assets/Sounds/Click_02.ogg" id="6_wtack"]
+
+[node name="Thank You" instance=ExtResource("1_sbnlm")]
+script = ExtResource("2_4i0n2")
+
+[node name="Logo" type="Sprite2D" parent="." index="2"]
+position = Vector2(147, 49)
+scale = Vector2(1.40625, 1.40625)
+texture = ExtResource("2_ucl4e")
+
+[node name="Play Again" type="TextureButton" parent="." index="3"]
+layout_mode = 0
+offset_left = 296.0
+offset_top = 95.0
+offset_right = 432.0
+offset_bottom = 161.0
+texture_normal = ExtResource("3_tggpp")
+texture_hover = ExtResource("4_uba5f")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="Play Again" index="0"]
+layout_mode = 0
+offset_left = 10.0
+offset_right = 131.0
+offset_bottom = 57.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_x38d4")
+theme_override_font_sizes/font_size = 32
+text = "PLAY Again"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Click1" type="AudioStreamPlayer2D" parent="Play Again" index="1"]
+position = Vector2(-199, -118)
+stream = ExtResource("6_wtack")
+bus = &"SFX"
+
+[node name="Exit" type="TextureButton" parent="." index="4"]
+layout_mode = 0
+offset_left = 404.0
+offset_top = 182.0
+offset_right = 479.0
+offset_bottom = 214.0
+texture_normal = ExtResource("3_tggpp")
+texture_hover = ExtResource("4_uba5f")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="Exit" index="0"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = -3.0
+offset_right = 72.0
+offset_bottom = 32.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_x38d4")
+theme_override_font_sizes/font_size = 16
+text = "Exit"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Click2" type="AudioStreamPlayer2D" parent="Exit" index="1"]
+position = Vector2(-199, -118)
+stream = ExtResource("6_wtack")
+bus = &"SFX"
+
+[node name="Main Menu" type="TextureButton" parent="." index="5"]
+layout_mode = 0
+offset_left = 21.0
+offset_top = 187.0
+offset_right = 96.0
+offset_bottom = 219.0
+texture_normal = ExtResource("3_tggpp")
+texture_hover = ExtResource("4_uba5f")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="Main Menu" index="0"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = -3.0
+offset_right = 72.0
+offset_bottom = 32.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_x38d4")
+theme_override_font_sizes/font_size = 16
+text = "Main Menu"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Click3" type="AudioStreamPlayer2D" parent="Main Menu" index="1"]
+position = Vector2(-199, -118)
+stream = ExtResource("6_wtack")
+bus = &"SFX"
+
+[node name="Thanks" type="Label" parent="." index="6"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 88.0
+offset_right = 294.0
+offset_bottom = 145.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_x38d4")
+theme_override_font_sizes/font_size = 32
+text = "Thank You for playing the 
+game."
+vertical_alignment = 1
+
+[connection signal="pressed" from="Play Again" to="." method="_on_play_again_pressed"]
+[connection signal="finished" from="Play Again/Click1" to="." method="_on_click_1_finished"]
+[connection signal="pressed" from="Exit" to="." method="_on_exit_pressed"]
+[connection signal="finished" from="Exit/Click2" to="." method="_on_click_2_finished"]
+[connection signal="pressed" from="Main Menu" to="." method="_on_main_menu_pressed"]
+[connection signal="finished" from="Main Menu/Click3" to="." method="_on_click_3_finished"]

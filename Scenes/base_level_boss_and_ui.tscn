@@ -652,7 +652,7 @@ animations = [{
 "speed": 7.0
 }]
 
-[node name="Base_level_Boss_And_UI" type="Control"]
+[node name="Level_Finished" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

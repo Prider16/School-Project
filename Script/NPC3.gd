@@ -4,6 +4,7 @@ extends AnimatedSprite2D
 var key_equip = false
 var keyboard = false
 var equip :bool = false
+var given :bool = false
 @onready var label = $Label
 @onready var ui = %UI
 @onready var text_dialogs = $TextDialogs
@@ -28,6 +29,8 @@ func _process(delta):
 			ui.Add_Flag_Point()
 			ui.Add_Flag_Point()
 			equip = false
+		elif given == true:
+			text_dialogs.Dialog_box_found()
 		else:
 			text_dialogs.Dialog_box_ask()
 

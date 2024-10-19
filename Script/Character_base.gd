@@ -13,8 +13,8 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 func Movements(delta):
 	if not is_on_floor() and !on_ladder:
 		velocity.y += gravity * delta
-	if is_on_floor() and !on_ladder:
-		velocity.y += gravity*delta
+	#if is_on_floor() and !on_ladder:
+		#velocity.y += gravity*delta
 	if on_ladder == true:
 		if Input.is_action_pressed("UP"):
 			velocity.y = -SPEED*delta*10

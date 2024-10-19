@@ -13,3 +13,8 @@ func Dialog_box_ask():
 	Queue_text("Shit, I lost my key.")
 	Queue_text("Can you help me find my key? Thanks")
 	Hide_text_box()
+
+func Dialog_box_found():
+	Show_textBox()
+	Queue_text("Thank You for find my key...")
+	Hide_text_box()
