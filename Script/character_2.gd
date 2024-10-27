@@ -49,4 +49,3 @@ func _on_ladder_4_body_exited(body):
 
 func _physics_process(delta):
 	Movements(delta)
-

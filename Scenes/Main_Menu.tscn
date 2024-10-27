@@ -13,12 +13,12 @@
 [node name="Base_level_Boss_And_UI" instance=ExtResource("1_0bdhf")]
 script = ExtResource("2_ahubb")
 
-[node name="Logo" type="Sprite2D" parent="." index="2"]
+[node name="Logo" type="Sprite2D" parent="." index="4"]
 position = Vector2(243, 66)
 scale = Vector2(1.40625, 1.40625)
 texture = ExtResource("2_i0qal")
 
-[node name="Start Button" type="TextureButton" parent="." index="3"]
+[node name="Start Button" type="TextureButton" parent="." index="5"]
 layout_mode = 0
 offset_left = 199.0
 offset_top = 118.0
@@ -47,7 +47,7 @@ position = Vector2(-199, -118)
 stream = ExtResource("9_baf75")
 bus = &"SFX"
 
-[node name="Settings" type="TextureButton" parent="." index="4"]
+[node name="Settings" type="TextureButton" parent="." index="6"]
 layout_mode = 0
 offset_left = 110.0
 offset_top = 127.0
@@ -76,7 +76,7 @@ position = Vector2(-199, -118)
 stream = ExtResource("9_baf75")
 bus = &"SFX"
 
-[node name="How To?" type="TextureButton" parent="." index="5"]
+[node name="How To?" type="TextureButton" parent="." index="7"]
 layout_mode = 0
 offset_left = 316.0
 offset_top = 129.0
@@ -105,7 +105,7 @@ position = Vector2(-199, -118)
 stream = ExtResource("9_baf75")
 bus = &"SFX"
 
-[node name="Exit" type="TextureButton" parent="." index="6"]
+[node name="Exit" type="TextureButton" parent="." index="8"]
 layout_mode = 0
 offset_left = 452.0
 offset_top = 212.0
